@@ -1,7 +1,6 @@
 geopandas
 pandas
 folium 
+streamlit_folium
 matplotlib 
-mapclassify
 streamlit
-leafmap.foliumap
