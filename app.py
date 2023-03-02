@@ -15,6 +15,6 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 m = shapefile.explore()
 for idx, row in df_fire.iterrows():
-    folium.Marker(location=[row["LAT"], row["LON"]], popup=row["Name"]).add_to(m)#, row["LON"]], 
+    folium.Marker(location=[row["LAT"], row["LON"]], popup=row["NAME"]).add_to(m)#, row["LON"]], 
 st_data = st_folium(m, width=725)
 shapefile.explore()
