@@ -7,7 +7,7 @@ import geopandas as gpd
 shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 # center on Liberty Bell, add marker
-m = folium.Map(tiles='OpenStreetMap',zoom_start=16)
+m = folium.Map(tiles='OpenStreetMap',zoom_start=160)
 # folium.Marker(
 #     [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
 # ).add_to(m)
