@@ -4,3 +4,4 @@ folium
 matplotlib 
 mapclassify
 streamlit
+leafmap.foliumap
