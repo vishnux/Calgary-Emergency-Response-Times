@@ -32,7 +32,7 @@ for index, row in df_fire.iterrows():
     ).add_to(m)
 
 # Add the shapefile to the map
-folium.GeoJson(shapefile,style_function=lambda x: {'fillColor': 'lightblue', 'color': 'black', 'weight': 2, 'fillOpacity': 0.5}).add_to(m)
+folium.GeoJson(shapefile,style_function=lambda x: {'fillColor': 'lightblue', 'color': 'black', 'weight': 2, 'fillOpacity': 0.1}).add_to(m)
 
 # Render the map in Streamlit
 st_data = st_folium(m, width=725, height=450)
