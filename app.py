@@ -17,13 +17,13 @@
 # choropleth.geojson.add_to(map)
 # st_map = st_folium(map, width=700, height=450)
 
-# import streamlit as st
-# import folium
-# from streamlit_folium import st_folium
-# import geopandas as gpd
+import streamlit as st
+import folium
+from streamlit_folium import st_folium
+import geopandas as gpd
 
-# # Load the shapefile using geopandas
-# shapefile = gpd.read_file("clipped-to-calgary.shp")
+# Load the shapefile using geopandas
+shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 # # Create a folium map centered on Calgary
 # map = folium.Map(location=[51.0447, -114.0719], zoom_start=10)
@@ -60,3 +60,5 @@ folium.Marker(
 
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=725)
+
+#folium.GeoJson(oakl_geojson
