@@ -4,10 +4,10 @@ import folium
 from streamlit_folium import st_folium
 import geopandas as gpd
 
-shapefile = gpd.read_file("clipped-to-calgary.shp",SHAPE_RESTORE_SHX = 'YES')
+shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 choropleth = folium.Choropleth(
-        geo_data='data/us-state-boundaries.geojson',
+        geo_data='clipped-to-calgary.shp',
         data=shapefile,
         columns=('cfsauid'),
         key_on='feature.properties.name',
