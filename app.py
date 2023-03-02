@@ -10,3 +10,6 @@ import geopandas as gpd
 
 shapefile = gpd.read_file("clipped-to-calgary.shp",SHAPE_RESTORE_SHX = 'YES')
 print(shapefile)
+
+data = [1,2]
+print(data)
