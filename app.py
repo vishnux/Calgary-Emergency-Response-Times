@@ -13,11 +13,6 @@ import streamlit as st
 #     folium.Marker(location=[row["LAT"], row["LON"]]).add_to(m)
 # st_data = st_folium(m, width=725)import streamlit as st
 import pandas as pd
-import json
-from datetime import date
-from urllib.request import urlopen
-import time
-import altair as alt
 import folium
 from streamlit_folium import st_folium
 import geopandas as gpd
