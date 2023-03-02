@@ -5,7 +5,7 @@ import geopandas as gpd
 
 # Load the shapefile using geopandas
 
-df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
+#df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
 shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 m = shapefile.explore()
