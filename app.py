@@ -1,4 +1,4 @@
-# import streamlit as st
+import streamlit as st
 # import folium
 # from streamlit_folium import st_folium
 # import geopandas as gpd
@@ -22,7 +22,7 @@ import folium
 from streamlit_folium import st_folium
 import geopandas as gpd
 
-#st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 st.title("")
 st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)#color: red;
 
