@@ -15,3 +15,4 @@ choropleth = folium.Choropleth(
         highlight=True
     )
 choropleth.geojson.add_to(map)
+st_map = st_folium(map, width=700, height=450)
