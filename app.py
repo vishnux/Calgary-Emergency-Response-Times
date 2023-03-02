@@ -8,9 +8,9 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 # center on Liberty Bell, add marker
 m = folium.Map(tiles='OpenStreetMap',zoom_start=160)
-# folium.Marker(
-#     [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
-# ).add_to(m)
+folium.Marker(
+     [51.0447, 114.0719]
+).add_to(m)
 folium.GeoJson(shapefile).add_to(m)
 # call to render Folium map in Streamlit
 st_data = st_folium(m, width=725)
