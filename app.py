@@ -1,16 +1,10 @@
 import streamlit as st
 import pandas as pd
-import json
-from datetime import date
-from urllib.request import urlopen
-import time
-import altair as alt
 import folium
+from streamlit_folium import st_folium
 import geopandas as gpd
-import leafmap.foliumap as leafmap
 
 shapefile = gpd.read_file("clipped-to-calgary.shp",SHAPE_RESTORE_SHX = 'YES')
-print(shapefile)
 
 map = folium.Map(location=[38, -96.5], zoom_start=4, scrollWheelZoom=False, tiles='CartoDB positron')
     
