@@ -53,7 +53,7 @@ import streamlit as st
 from streamlit_folium import st_folium
 
 # center on Liberty Bell, add marker
-m = folium.Map(zoom_start=16)
+m = folium.Map()#tiles='OpenStreetMap',zoom_start=16
 # folium.Marker(
 #     [39.949610, -75.150282], popup="Liberty Bell", tooltip="Liberty Bell"
 # ).add_to(m)
