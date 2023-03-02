@@ -33,7 +33,7 @@ folium.Choropleth(
     geo_data=shapefile,
     name='choropleth',
     data=shapefile,
-    columns=['cfsauid','dguid'],
+    columns=['cfsauid','prname'],
     key_on='feature.properties.cfsauid',
     fill_color='YlGn',
     fill_opacity=0.7,
