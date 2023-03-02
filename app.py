@@ -14,7 +14,25 @@ df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
 shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 m = shapefile.explore()
-for idx, row in df_fire.iterrows():
-    folium.Marker(location=[row["LAT"], row["LON"]], popup=row["NAME"]).add_to(m)#, row["LON"]], 
-st_data = st_folium(m, width=725)
-shapefile.explore()
+# for idx, row in df_fire.iterrows():
+#     folium.Marker(location=[row["LAT"], row["LON"]], popup=row["NAME"]).add_to(m)#, row["LON"]], 
+# st_data = st_folium(m, width=725)
+# shapefile.explore()
+
+for index, row in df_fire.iterrows():
+    folium.CircleMarker(
+        location=[row["LAT"], row["LON"]],
+        radius=2,
+        fill=True,
+        fill_color="red",
+        fill_opacity=1,
+        color="red",
+        opacity=1,
+        weight=1
+    ).add_to(m)
+
+# Add the shapefile to the map
+folium.GeoJson(shapefile).add_to(m)
+
+# Render the map in Streamlit
+st_data = st_folium(m, width=725, height=450)
