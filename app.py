@@ -9,6 +9,6 @@ import geopandas as gpd
 shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 m = shapefile.explore()
-for idx, row in df_fire.iterrows():
-    folium.Marker(location=[row["LAT"], row["LON"]], icon=folium.Icon(icon="circle", prefix='fa', color='blue')).add_to(m)
+#for idx, row in df_fire.iterrows():
+#    folium.Marker(location=[row["LAT"], row["LON"]], icon=folium.Icon(icon="circle", prefix='fa', color='blue')).add_to(m)
 st_data = st_folium(m, width=725)
