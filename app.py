@@ -98,6 +98,22 @@ if fsa_search:
             icon=folium.Icon(color="green", icon="info-sign"),
         ).add_to(m)
 
+incidents_heatmap = folium.FeatureGroup(name="Fire Incidents Heatmap")
+
+for lat, lon in zip(df_fire["LAT"], df_incidents["LON"]):
+    incidents_heatmap.add_child(
+        folium.CircleMarker(
+            location=[lat, lon],
+            radius=1,
+            fill=True,
+            fill_opacity=0.5,
+            color="red",
+            opacity=0
+        )
+    )
+
+m.add_child(incidents_heatmap)
+
 
 # Add a legend to the map
 legend_html = '''
