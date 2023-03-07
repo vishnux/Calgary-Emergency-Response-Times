@@ -87,6 +87,7 @@ folium.GeoJson(
     tooltip=folium.GeoJsonTooltip(fields=['cfsauid'], labels=False, sticky=False)
 ).add_to(m)
 
+#Search Bar for FSA
 fsa_search = st.sidebar.text_input("Search for FSA:")
 if fsa_search:
     fsa_data = df_fire[df_fire["FSA"].str.contains(fsa_search)]
@@ -97,22 +98,6 @@ if fsa_search:
             tooltip=row["NAME"],
             icon=folium.Icon(color="green", icon="info-sign"),
         ).add_to(m)
-
-incidents_heatmap = folium.FeatureGroup(name="Fire Incidents Heatmap")
-
-for lat, lon in zip(df_fire["LAT"], df_fire["LON"]):
-    incidents_heatmap.add_child(
-        folium.CircleMarker(
-            location=[LAT, LON],
-            radius=1,
-            fill=True,
-            fill_opacity=0.5,
-            color="red",
-            opacity=0
-        )
-    )
-
-m.add_child(incidents_heatmap)
 
 
 # Add a legend to the map
