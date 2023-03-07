@@ -84,7 +84,6 @@ for index, row in df_fire.iterrows():
     folium.CircleMarker(
         location=[row["LAT"], row["LON"]],
         popup=row["NAME"],
-        #tooltip=row["NAME"],
         radius=2,
         fill=True,
         fill_color="red",
