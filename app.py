@@ -81,10 +81,9 @@ m = folium.Map(location=[51.0447,-114.0719], zoom_start=11)
 
 # Add the fire stations as circle markers with popups and labels
 for index, row in df_fire.iterrows():
-    folium.CircleMarker(
+    marker = folium.CircleMarker(
         location=[row["LAT"], row["LON"]],
         popup=row["NAME"],
-        tooltip=row["NAME"],
         radius=2,
         fill=True,
         fill_color="red",
@@ -92,9 +91,11 @@ for index, row in df_fire.iterrows():
         color="red",
         opacity=1,
         weight=1,
-        # Add a label to the circle marker
-        #tooltip=folium.Popup(row["NAME"])
-    ).add_to(m)
+    )
+    # Add a label to the circle marker
+    marker.add_child(folium.Popup(row["NAME"]))
+    marker.add_to(m)
+
 
 
 # Add the shapefile to the map
