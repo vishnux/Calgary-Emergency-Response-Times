@@ -55,7 +55,7 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 # Create a map
 m = folium.Map(location=[51.0447,-114.0719], zoom_start=11)
 
-Add the fire stations as markers with popups
+#Add the fire stations as markers with popups
 for index, row in df_fire.iterrows():
     folium.Marker(
         location=[row["LAT"], row["LON"]],
