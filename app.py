@@ -92,7 +92,7 @@ for index, row in df_fire.iterrows():
         opacity=1,
         weight=1,
         # Add a label to the circle marker
-        tooltip=folium.Popup(row["NAME"], parse_html=True)
+        tooltip=folium.Popup(row["NAME"])
     ).add_to(m)
 
 
