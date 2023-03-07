@@ -56,13 +56,13 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 m = folium.Map(location=[51.0447,-114.0719], zoom_start=11)
 
 # #Add the fire stations as markers with popups
-# for index, row in df_fire.iterrows():
-#     folium.Marker(
-#         location=[row["LAT"], row["LON"]],
-#         popup=row["NAME"],
-#         tooltip=row["NAME"],
-#         icon=folium.Icon(color="red")
-#     ).add_to(m)
+for index, row in df_fire.iterrows():
+    folium.CircleMarker(
+        location=[row["LAT"], row["LON"]],
+        popup=row["NAME"],
+        tooltip=row["NAME"],
+        icon=folium.Icon(color="red")
+    ).add_to(m)
     
 # for index, row in df_fire.iterrows():
 #     folium.CircleMarker(
@@ -78,24 +78,6 @@ m = folium.Map(location=[51.0447,-114.0719], zoom_start=11)
 #         opacity=1,
 #         weight=1
 #     ).add_to(m)
-
-# Add the fire stations as circle markers with popups and labels
-for index, row in df_fire.iterrows():
-    marker = folium.CircleMarker(
-        location=[row["LAT"], row["LON"]],
-        popup=row["NAME"],
-        radius=2,
-        fill=True,
-        fill_color="red",
-        fill_opacity=1,
-        color="red",
-        opacity=1,
-        weight=1,
-    )
-    # Add a label to the circle marker
-    marker.add_child(folium.Popup(row["NAME"]))
-    marker.add_to(m)
-
 
 
 # Add the shapefile to the map
