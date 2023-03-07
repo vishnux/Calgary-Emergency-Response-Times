@@ -83,7 +83,8 @@ m = folium.Map(location=[51.0447,-114.0719], zoom_start=11)
 for index, row in df_fire.iterrows():
     folium.CircleMarker(
         location=[row["LAT"], row["LON"]],
-        #popup=row["NAME"],
+        popup=row["NAME"],
+        tooltip=row["NAME"],
         radius=2,
         fill=True,
         fill_color="red",
@@ -92,7 +93,7 @@ for index, row in df_fire.iterrows():
         opacity=1,
         weight=1,
         # Add a label to the circle marker
-        tooltip=folium.Popup(row["NAME"])
+        #tooltip=folium.Popup(row["NAME"])
     ).add_to(m)
 
 
