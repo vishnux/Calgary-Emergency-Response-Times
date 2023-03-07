@@ -73,7 +73,7 @@ for index, row in df_fire.iterrows():
         fill=True,
         fill_color="red",
         fill_opacity=1,
-        icon=folium.Icon(color="red")
+        icon=folium.Icon(color="red"),
         color="red",
         opacity=1,
         weight=1
