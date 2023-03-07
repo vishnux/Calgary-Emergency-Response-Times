@@ -68,7 +68,7 @@ for index, row in df_fire.iterrows():
 folium.GeoJson(
     shapefile,
     style_function=lambda x: {'fillColor': 'lightblue', 'color': 'black', 'weight': 2, 'fillOpacity': 0.01},
-    tooltip=folium.GeoJsonTooltip(fields=['FSA'], labels=False, sticky=False)
+    tooltip=folium.GeoJsonTooltip(fields=['cfsauid'], labels=False, sticky=False)
 ).add_to(m)
 
 # Add a legend to the map
