@@ -87,6 +87,18 @@ folium.GeoJson(
     tooltip=folium.GeoJsonTooltip(fields=['cfsauid'], labels=False, sticky=False)
 ).add_to(m)
 
+fsa_search = st.sidebar.text_input("Search for FSA:")
+if fsa_search:
+    fsa_data = df_fire[df_fire["FSA"].str.contains(fsa_search)]
+    for index, row in fsa_data.iterrows():
+        folium.Marker(
+            location=[row["LAT"], row["LON"]],
+            popup=row["NAME"],
+            tooltip=row["NAME"],
+            icon=folium.Icon(color="green", icon="info-sign"),
+        ).add_to(m)
+
+
 # Add a legend to the map
 legend_html = '''
      <div style="position: fixed; 
