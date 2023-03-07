@@ -103,7 +103,7 @@ incidents_heatmap = folium.FeatureGroup(name="Fire Incidents Heatmap")
 for lat, lon in zip(df_fire["LAT"], df_fire["LON"]):
     incidents_heatmap.add_child(
         folium.CircleMarker(
-            location=[lat, lon],
+            location=[LAT, LON],
             radius=1,
             fill=True,
             fill_opacity=0.5,
