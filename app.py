@@ -186,27 +186,23 @@ color_ranges = {
     "5+ mins": "red"
 }
 
-# Add FSAs to the map with popup showing FSA code and average response time
-for index, row in df_avgtime_fire.iterrows():
-    fsa = row["FSA"]
-    avg_time = row["Avg_time"]
-    
-    # Define color based on response time range
-    if avg_time < 2:
-        color = color_ranges["0-2 mins"]
-    elif avg_time < 4:
-        color = color_ranges["2-4 mins"]
-    else:
-        color = color_ranges["5+ mins"]
-    
-    # Find the FSA in the shapefile and add to the map
-    fsa_shape = shapefile[shapefile["cfsauid"] == fsa]
-    if not fsa_shape.empty:
+    # Add the shapefile to the map, colored by avg_time ranges
+    for index, row in shapefile.iterrows():
+        fsa = row['cfsauid']
+        avg_time = df_avgtime_fire[df_avgtime_fire['FSA'] == fsa]['Avg_time'].values[0]
+
+        # Determine the color for the shape based on avg_time
+        color = 'white'
+        for k, v in color_ranges.items():
+            if avg_time >= v[0] and avg_time < v[1]:
+                color = k
+
         folium.GeoJson(
-            fsa_shape.to_json(),
-            style_function=lambda x: {'fillColor': color, 'color': 'black', 'weight': 2, 'fillOpacity': 0.7},
-            tooltip=f"FSA {fsa}<br>Avg Response Time: {avg_time:.2f} mins"
+            row,
+            style_function=lambda x: {'fillColor': color, 'color': 'black', 'weight': 2, 'fillOpacity': 0.8},
+            tooltip=f"FSA: {fsa}, Avg. Time: {avg_time:.2f} min"
         ).add_to(m)
+
 
 # Search Bar for FSA
 fsa_search = st.sidebar.text_input("Search for FSA:")
