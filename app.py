@@ -20,8 +20,8 @@ df_avgtimes_fire = shapefile.merge(df_avgtime_fire, left_on="cfsauid", right_on=
 # Define color scale
 color_scale = folium.LinearColormap(
     colors=["#f7fbff", "#deebf7", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#08519c", "#08306b"],
-    vmin=df_avgtimes_fire["avg_time"].min(),
-    vmax=df_avgtimes_fire["avg_time"].max(),
+    vmin=df_avgtimes_fire["Avg_time"].min(),
+    vmax=df_avgtimes_fire["Avg_time"].max(),
     caption="Average Response Time (Seconds)",
 )
 
@@ -47,12 +47,12 @@ for index, row in df_fire.iterrows():
 folium.GeoJson(
     df_avgtimes_fire,
     style_function=lambda x: {
-        "fillColor": color_scale(x["properties"]["avg_time"]),
+        "fillColor": color_scale(x["properties"]["Avg_time"]),
         "color": "black",
         "weight": 2,
         "fillOpacity": 0.6,
     },
-    tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "avg_time"], aliases=["FSA", "Avg Response Time (s)"], sticky=False),
+    tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time (s)"], sticky=False),
     highlight_function=lambda x: {
         "weight": 4,
         "fillOpacity": 0.9,
