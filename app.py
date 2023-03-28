@@ -40,7 +40,7 @@ folium.Choropleth(
     geo_data=shapefile,
     name='choropleth',
     data=df_avgtime_fire,
-    columns=['FSA', 'avg_time'],
+    columns=['FSA', 'Avg_time'],
     key_on='feature.properties.cfsauid',
     fill_color='YlOrRd',
     fill_opacity=0.7,
