@@ -14,11 +14,19 @@ df_avgtime_fire = pd.read_csv("FireStation_avgtimes.csv")
 # Load the shapefile using geopandas
 shapefile = gpd.read_file("clipped-to-calgary.shp")
 
-# Calculate bounds of the shapefile
-bounds = shapefile.total_bounds
+# Join shapefile with df_avgtime_fire on FSA code
+df_avgtimes_fire = shapefile.merge(df_avgtime_fire, left_on="cfsauid", right_on="FSA")
+
+# Define color scale
+color_scale = folium.LinearColormap(
+    colors=["#f7fbff", "#deebf7", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#08519c", "#08306b"],
+    vmin=df_avgtimes_fire["Avg_time"].min(),
+    vmax=df_avgtimes_fire["Avg_time"].max(),
+    caption="Average Response Time (Seconds)",
+)
 
 # Create a map
-m = folium.Map(location=[51.0447,-114.0719], zoom_start=12)
+m = folium.Map(location=[51.0447,-114.0719], zoom_start=11)
 
 for index, row in df_fire.iterrows():
     folium.CircleMarker(
@@ -35,26 +43,28 @@ for index, row in df_fire.iterrows():
         weight=1
     ).add_to(m)
 
-# Add the shapefile to the map and color by average time
-folium.Choropleth(
-    geo_data=shapefile,
-    name='choropleth',
-    data=df_avgtime_fire,
-    columns=['FSA', 'Avg_time'],
-    key_on='feature.properties.cfsauid',
-    fill_color='YlOrRd',
-    fill_opacity=0.7,
-    line_opacity=0.2,
-    legend_name='Average Response Time (s)',
-    highlight=True,
-    overlay=True,
-    show=False
+# Add the shapefile with color ranges to the map
+folium.GeoJson(
+    df_avgtimes_fire,
+    style_function=lambda x: {
+        "fillColor": color_scale(x["properties"]["Avg_time"]),
+        "color": "black",
+        "weight": 2,
+        "fillOpacity": 0.6,
+    },
+    tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time (s)"], sticky=False),
+    highlight_function=lambda x: {
+        "weight": 4,
+        "fillOpacity": 0.9,
+    },
+    name="Average Response Time (s)"
 ).add_to(m)
 
-# Fit the map to the bounds of the shapefile
-m.fit_bounds(bounds)
+# Add the legend to the map
+color_scale.add_to(m)
+folium.LayerControl().add_to(m)
 
-#Search Bar for FSA
+# Search Bar for FSA
 fsa_search = st.sidebar.text_input("Search for FSA:")
 if fsa_search:
     fsa_data = df_avgtime_fire[df_avgtime_fire["FSA"].str.contains(fsa_search)]
@@ -65,19 +75,6 @@ if fsa_search:
             tooltip=row["NAME"],
             icon=folium.Icon(color="green", icon="info-sign"),
         ).add_to(m)
-
-# Add a legend to the map
-legend_html = '''
-     <div style="position: fixed; 
-                 bottom: 50px; left: 50px; width: 120px; height: 110px; 
-                 border:2px solid grey; z-index:9999; font-size:14px;
-                 background-color:white;
-                 ">
-         &nbsp; Fire Stations &nbsp; <i class="fa fa-map-marker fa-2x" style="color:red"></i><br>
-         &nbsp; Forward Sortation Areas &nbsp; <i class="fa fa-map fa-2x" style="color:lightblue"></i>
-     </div>
-     '''
-m.get_root().html.add_child(folium.Element(legend_html))
 
 # Render the map in Streamlit
 st_data = st_folium(m, width=725, height=450)
