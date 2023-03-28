@@ -186,22 +186,22 @@ color_ranges = {
     "5+ mins": "red"
 }
 
-    # Add the shapefile to the map, colored by avg_time ranges
-    for index, row in shapefile.iterrows():
-        fsa = row['cfsauid']
-        avg_time = df_avgtime_fire[df_avgtime_fire['FSA'] == fsa]['Avg_time'].values[0]
+# Add the shapefile to the map, colored by avg_time ranges
+for index, row in shapefile.iterrows():
+    fsa = row['cfsauid']
+    avg_time = df_avgtime_fire[df_avgtime_fire['FSA'] == fsa]['Avg_time'].values[0]
 
-        # Determine the color for the shape based on avg_time
-        color = 'white'
-        for k, v in color_ranges.items():
-            if avg_time >= v[0] and avg_time < v[1]:
-                color = k
+    # Determine the color for the shape based on avg_time
+    color = 'white'
+    for k, v in color_ranges.items():
+        if avg_time >= v[0] and avg_time < v[1]:
+            color = k
 
-        folium.GeoJson(
-            row,
-            style_function=lambda x: {'fillColor': color, 'color': 'black', 'weight': 2, 'fillOpacity': 0.8},
-            tooltip=f"FSA: {fsa}, Avg. Time: {avg_time:.2f} min"
-        ).add_to(m)
+    folium.GeoJson(
+        row,
+        style_function=lambda x: {'fillColor': color, 'color': 'black', 'weight': 2, 'fillOpacity': 0.8},
+        tooltip=f"FSA: {fsa}, Avg. Time: {avg_time:.2f} min"
+    ).add_to(m)
 
 
 # Search Bar for FSA
