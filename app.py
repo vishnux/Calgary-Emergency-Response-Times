@@ -28,6 +28,19 @@ color_scale = folium.LinearColormap(
 
 # Create a map
 m = folium.Map(location=[51.0447,-114.0719], zoom_start=10)
+m._position = 'absolute'
+m.width='100%'
+m.height='100%'
+m.left='50%'
+m.top='50%'
+m.location = [51.0447,-114.0719]
+m.zoom_start = 10
+m.save('map.html')
+
+# Render the map in Streamlit
+#st.markdown('<h1 style="text-align: center;">Calgary Fire Station Response Lag Time Analysis</h1>', unsafe_allow_html=True)
+st.components.v1.html(open('map.html', 'r').read(), width=900, height=600, scrolling=False)
+
 
 for index, row in df_fire.iterrows():
     folium.CircleMarker(
