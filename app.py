@@ -27,7 +27,7 @@ color_scale = folium.LinearColormap(
 )
 
 # Create a map
-m = folium.Map(location=[51.0447,-114.0719], zoom_start=10)
+m = folium.Map(location=[51.0447,-114.0719], zoom_start=10,location=st.session_state["center"])
 
 for index, row in df_fire.iterrows():
     folium.CircleMarker(
@@ -79,7 +79,6 @@ if fsa_search:
 
 # Render the map in Streamlit
 st_data = st_folium(m, width=725, height=550)
-st_data = st_folium(m, width="100%", height="100%")
 
 
 #TEST 
