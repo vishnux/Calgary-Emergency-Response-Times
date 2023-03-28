@@ -16,15 +16,6 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 # Create a map
 m = folium.Map(location=[51.0447,-114.0719], zoom_start=11)
-
-# #Add the fire stations as markers with popups
-# for index, row in df_fire.iterrows():
-#     folium.Marker(
-#         location=[row["LAT"], row["LON"]],
-#         popup=row["NAME"],
-#         tooltip=row["NAME"],
-#         icon=folium.Icon(color="red")
-#     ).add_to(m)
     
 for index, row in df_fire.iterrows():
     folium.CircleMarker(
@@ -49,34 +40,6 @@ folium.GeoJson(
     tooltip=folium.GeoJsonTooltip(fields=['cfsauid'], labels=False, sticky=False)
 ).add_to(m)
 
-# Define color ranges for FSAs
-color_ranges = {
-    "0-2 mins": "green",
-    "2-4 mins": "yellow",
-    "5+ mins": "red"
-}
-
-# Add FSAs to the map with popup showing FSA code and average response time
-for index, row in df_avgtime_fire.iterrows():
-    fsa = row["FSA"]
-    avg_time = row["Avg_time"]
-    
-    # Define color based on response time range
-    if avg_time < 2:
-        color = color_ranges["0-2 mins"]
-    elif avg_time < 4:
-        color = color_ranges["2-4 mins"]
-    else:
-        color = color_ranges["5+ mins"]
-    
-    # Find the FSA in the shapefile and add to the map
-    fsa_shape = shapefile[shapefile["cfsauid"] == fsa]
-    if not fsa_shape.empty:
-        folium.GeoJson(
-            fsa_shape.to_json(),
-            style_function=lambda x: {'fillColor': color, 'color': 'black', 'weight': 2, 'fillOpacity': 0.7},
-            tooltip=f"FSA {fsa}<br>Avg Response Time: {avg_time:.2f} mins"
-        ).add_to(m)
 
 #Search Bar for FSA
 fsa_search = st.sidebar.text_input("Search for FSA:")
