@@ -16,7 +16,7 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 # Join shapefile with df_avgtime_fire on FSA code
 df_avgtimes_fire = shapefile.merge(df_avgtime_fire, left_on="cfsauid", right_on="FSA")
-
+df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
 # Define color scale
 color_scale = folium.LinearColormap(
     colors=["blue", "green", "yellow", "red"],
@@ -43,23 +43,6 @@ for index, row in df_fire.iterrows():
         opacity=1,
         weight=1
     ).add_to(m)
-
-# # Add the shapefile with color ranges to the map
-# folium.GeoJson(
-#     df_avgtimes_fire,
-#     style_function=lambda x: {
-#         "fillColor": color_scale(x["properties"]["Avg_time"]),
-#         "color": "black",
-#         "weight": 2,
-#         "fillOpacity": 0.6,
-#     },
-#     tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time(min)"], sticky=False),
-#     highlight_function=lambda x: {
-#         "weight": 4,
-#         "fillOpacity": 0.9,
-#     },
-#     name="Average Response Time (s)"
-# ).add_to(m)
 
 # Add the shapefile with color ranges to the map
 folium.GeoJson(
