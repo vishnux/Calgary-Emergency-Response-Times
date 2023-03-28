@@ -44,6 +44,23 @@ for index, row in df_fire.iterrows():
         weight=1
     ).add_to(m)
 
+# # Add the shapefile with color ranges to the map
+# folium.GeoJson(
+#     df_avgtimes_fire,
+#     style_function=lambda x: {
+#         "fillColor": color_scale(x["properties"]["Avg_time"]),
+#         "color": "black",
+#         "weight": 2,
+#         "fillOpacity": 0.6,
+#     },
+#     tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time(min)"], sticky=False),
+#     highlight_function=lambda x: {
+#         "weight": 4,
+#         "fillOpacity": 0.9,
+#     },
+#     name="Average Response Time (s)"
+# ).add_to(m)
+
 # Add the shapefile with color ranges to the map
 folium.GeoJson(
     df_avgtimes_fire,
@@ -53,7 +70,7 @@ folium.GeoJson(
         "weight": 2,
         "fillOpacity": 0.6,
     },
-    tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time(min)"], sticky=False),
+    tooltip=folium.GeoJsonTooltip(fields=["FSA", "Avg_time"], aliases=["FSA", "Avg Response Time(min)"], sticky=False),
     highlight_function=lambda x: {
         "weight": 4,
         "fillOpacity": 0.9,
