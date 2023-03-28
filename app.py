@@ -52,7 +52,7 @@ folium.GeoJson(
         "weight": 2,
         "fillOpacity": 0.6,
     },
-    tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time (s)"], sticky=False),
+    tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time(min)"], sticky=False),
     highlight_function=lambda x: {
         "weight": 4,
         "fillOpacity": 0.9,
