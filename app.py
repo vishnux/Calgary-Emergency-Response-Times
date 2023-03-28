@@ -48,6 +48,7 @@ st.title("")
 st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)#color: red;
 
 df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
+df_avgtime_fire = pd.read_csv("FireStation_avgtimes.csv")
 
 # Load the shapefile using geopandas
 shapefile = gpd.read_file("clipped-to-calgary.shp")
