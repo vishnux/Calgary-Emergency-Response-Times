@@ -20,10 +20,10 @@ df_avgtimes_fire = shapefile.merge(df_avgtime_fire, left_on="cfsauid", right_on=
 # Define color scale
 color_scale = folium.LinearColormap(
     colors=["blue", "green", "yellow", "red"],
-    index=[0, 2, 4, 6, df_avgtimes_fire["Avg_time"].max()],
+    index=[0, 2, 5, 8, df_avgtimes_fire["Avg_time"].max()],
     vmin=0,
     vmax=df_avgtimes_fire["Avg_time"].max(),
-    caption="Average Response Time (Minutes)",
+    caption="Average Response Time (Seconds)",
 )
 
 # Create a map
@@ -58,7 +58,7 @@ folium.GeoJson(
         "weight": 4,
         "fillOpacity": 0.9,
     },
-    name="Average Response Time (min)"
+    name="Average Response Time (s)"
 ).add_to(m)
 
 # Add the legend to the map
@@ -79,89 +79,6 @@ if fsa_search:
 
 # Render the map in Streamlit
 st_data = st_folium(m, width=725, height=550)
-
-
-# import streamlit as st
-# import pandas as pd
-# import folium
-# from streamlit_folium import st_folium
-# import geopandas as gpd
-
-# st.set_page_config(layout="wide")
-# st.title("")
-# st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)
-
-# df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
-# df_avgtime_fire = pd.read_csv("FireStation_avgtimes.csv")
-
-# # Load the shapefile using geopandas
-# shapefile = gpd.read_file("clipped-to-calgary.shp")
-
-# # Join shapefile with df_avgtime_fire on FSA code
-# df_avgtimes_fire = shapefile.merge(df_avgtime_fire, left_on="cfsauid", right_on="FSA")
-
-# # Define color scale
-# color_scale = folium.LinearColormap(
-#     colors=["blue", "green", "yellow", "red"],
-#     index=[0, 2, 5, 8, df_avgtimes_fire["Avg_time"].max()],
-#     vmin=0,
-#     vmax=df_avgtimes_fire["Avg_time"].max(),
-#     caption="Average Response Time (Seconds)",
-# )
-
-# # Create a map
-# m = folium.Map(location=[51.0447,-114.0719], zoom_start=10)
-
-# for index, row in df_fire.iterrows():
-#     folium.CircleMarker(
-#         location=[row["LAT"], row["LON"]],
-#         popup=row["NAME"],
-#         tooltip=row["NAME"],
-#         radius=2,
-#         fill=True,
-#         fill_color="red",
-#         fill_opacity=1,
-#         icon=folium.Icon(color="red"),
-#         color="red",
-#         opacity=1,
-#         weight=1
-#     ).add_to(m)
-
-# # Add the shapefile with color ranges to the map
-# folium.GeoJson(
-#     df_avgtimes_fire,
-#     style_function=lambda x: {
-#         "fillColor": color_scale(x["properties"]["Avg_time"]),
-#         "color": "black",
-#         "weight": 2,
-#         "fillOpacity": 0.6,
-#     },
-#     tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time(min)"], sticky=False),
-#     highlight_function=lambda x: {
-#         "weight": 4,
-#         "fillOpacity": 0.9,
-#     },
-#     name="Average Response Time (s)"
-# ).add_to(m)
-
-# # Add the legend to the map
-# color_scale.add_to(m)
-# folium.LayerControl().add_to(m)
-
-# # Search Bar for FSA
-# fsa_search = st.sidebar.text_input("Search for FSA:")
-# if fsa_search:
-#     fsa_data = df_avgtime_fire[df_avgtime_fire["FSA"].str.contains(fsa_search)]
-#     for index, row in fsa_data.iterrows():
-#         folium.Marker(
-#             location=[row["LAT"], row["LON"]],
-#             popup=row["NAME"],
-#             tooltip=row["NAME"],
-#             icon=folium.Icon(color="green", icon="info-sign"),
-#         ).add_to(m)
-
-# # Render the map in Streamlit
-# st_data = st_folium(m, width=725, height=550)
 
 
 
