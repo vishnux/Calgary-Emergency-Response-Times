@@ -29,36 +29,36 @@ caption="Average Response Time (Seconds)",
 m = folium.Map(location=[51.0447,-114.0719], zoom_start=10)
 
 for index, row in df_fire.iterrows():
-folium.CircleMarker(
-location=[row["LAT"], row["LON"]],
-popup=row["NAME"],
-tooltip=row["NAME"],
-radius=2,
-fill=True,
-fill_color="red",
-fill_opacity=1,
-icon=folium.Icon(color="red"),
-color="red",
-opacity=1,
-weight=1
-).add_to(m)
+    folium.CircleMarker(
+    location=[row["LAT"], row["LON"]],
+    popup=row["NAME"],
+    tooltip=row["NAME"],
+    radius=2,
+    fill=True,
+    fill_color="red",
+    fill_opacity=1,
+    icon=folium.Icon(color="red"),
+    color="red",
+    opacity=1,
+    weight=1
+    ).add_to(m)
 
 #Add the shapefile with color ranges to the map
 folium.GeoJson(
-df_avgtimes_fire,
-style_function=lambda x: {
-"fillColor": color_scale(x["properties"]["Avg_time"]),
-"color": "black",
-"weight": 2,
-"fillOpacity": 0.6,
-},
-tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time(min)"], sticky=False),
-highlight_function=lambda x: {
-"weight": 4,
-"fillOpacity": 0.9,
-},
-name="Average Response Time (s)"
-).add_to(m)
+    df_avgtimes_fire,
+    style_function=lambda x: {
+    "fillColor": color_scale(x["properties"]["Avg_time"]),
+    "color": "black",
+    "weight": 2,
+    "fillOpacity": 0.6,
+    },
+    tooltip=folium.GeoJsonTooltip(fields=["cfsauid", "Avg_time"], aliases=["FSA", "Avg Response Time(min)"], sticky=False),
+    highlight_function=lambda x: {
+    "weight": 4,
+    "fillOpacity": 0.9,
+    },
+    name="Average Response Time (s)"
+    ).add_to(m)
 
 #Add the legend to the map
 color_scale.add_to(m)
@@ -66,15 +66,15 @@ folium.LayerControl().add_to(m)
 
 #Search Bar for FSA
 fsa_search = st.sidebar.text_input("Search for FSA:")
-if fsa_search:
-fsa_data = df_avgtime_fire[df_avgtime_fire["FSA"].str.contains(fsa_search)]
-for index, row in fsa_data.iterrows():
-folium.Marker(
-location=[row["LAT"], row["LON"]],
-popup=row["NAME"],
-tooltip=row["NAME"],
-icon=folium.Icon(color="green", icon="info-sign"),
-).add_to(m)
+    if fsa_search:
+    fsa_data = df_avgtime_fire[df_avgtime_fire["FSA"].str.contains(fsa_search)]
+    for index, row in fsa_data.iterrows():
+    folium.Marker(
+    location=[row["LAT"], row["LON"]],
+    popup=row["NAME"],
+    tooltip=row["NAME"],
+    icon=folium.Icon(color="green", icon="info-sign"),
+    ).add_to(m)
 
 #Render the map in Streamlit
 st_data = st_folium(m, width=725, height=450)
