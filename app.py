@@ -78,7 +78,7 @@ if fsa_search:
         ).add_to(m)
 
 # Render the map in Streamlit
-st_data = st_folium(m, width=725, height=450)
+st_data = st_folium(m, width=725, height=550)
 
 
 
