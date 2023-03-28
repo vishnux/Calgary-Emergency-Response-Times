@@ -20,10 +20,10 @@ df_avgtimes_fire = shapefile.merge(df_avgtime_fire, left_on="cfsauid", right_on=
 # Define color scale
 color_scale = folium.LinearColormap(
     colors=["blue", "green", "yellow", "red"],
-    index=[0, 120, 240, 360, df_avgtimes_fire["Avg_time"].max()],
+    index=[0, 2, 4, 6, df_avgtimes_fire["Avg_time"].max()],
     vmin=0,
     vmax=df_avgtimes_fire["Avg_time"].max(),
-    caption="Average Response Time (Seconds)",
+    caption="Average Response Time (Minutes)",
 )
 
 # Create a map
@@ -58,7 +58,7 @@ folium.GeoJson(
         "weight": 4,
         "fillOpacity": 0.9,
     },
-    name="Average Response Time (s)"
+    name="Average Response Time (min)"
 ).add_to(m)
 
 # Add the legend to the map
