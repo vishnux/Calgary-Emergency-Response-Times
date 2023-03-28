@@ -6,7 +6,7 @@ import geopandas as gpd
 
 st.set_page_config(layout="wide")
 st.title("")
-st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)#color: red;
+st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)
 
 df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
 df_avgtime_fire = pd.read_csv("FireStation_avgtimes.csv")
@@ -27,7 +27,7 @@ color_scale = folium.LinearColormap(
 )
 
 # Create a map
-m = folium.Map(location=[51.0447,-114.0719], zoom_start=11)
+m = folium.Map(location=[51.0447,-114.0719], zoom_start=10)
 
 for index, row in df_fire.iterrows():
     folium.CircleMarker(
@@ -79,6 +79,7 @@ if fsa_search:
 
 # Render the map in Streamlit
 st_data = st_folium(m, width=725, height=450)
+
 
 
 #TEST 
