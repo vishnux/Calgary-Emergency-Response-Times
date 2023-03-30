@@ -83,6 +83,7 @@ if fsa_search:
 map_container = st.container()
 with map_container:
     st_data = st_folium(m, width=725, height=550)
+    st_data
 
 # Center the container using CSS
 map_container.markdown(
