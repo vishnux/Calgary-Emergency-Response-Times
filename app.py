@@ -78,29 +78,7 @@ if fsa_search:
         ).add_to(m)
         
 # Render the map in Streamlit        
-#st_data = st_folium(m, width=725, height=550)
-
-map_container = st.container()
-with map_container:
-    st_data = st_folium(m, width=725, height=550)
-    st_data
-
-# Center the container using CSS
-map_container.markdown(
-    f"""
-    <style>
-        .stApp {{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }}
-        .css-1aumxhk {{
-            width: 100%;
-        }}
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+st_data = st_folium(m, width=725, height=550)
 
 
 # col1, col2, col3 = st.columns(3)
