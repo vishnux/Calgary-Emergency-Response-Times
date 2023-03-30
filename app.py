@@ -84,7 +84,7 @@ with col1:
 
 with col2:
     # Render the map in Streamlit
-    st_data = st_folium(m, width=725, height=550)
+    st_data_2 = st_folium(m, width=725, height=550)
 
 with col3:
     st.write(' ')        
