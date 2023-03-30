@@ -76,18 +76,18 @@ if fsa_search:
             tooltip=row["NAME"],
             icon=folium.Icon(color="green", icon="info-sign"),
         ).add_to(m)
-st_data = st_folium(m, width=725, height=550)
-# col1, col2, col3 = st.columns(3)
+#st_data = st_folium(m, width=725, height=550)
+col1, col2, col3 = st.columns(3)
 
-# with col1:
-#     st.write(' ')
+with col1:
+    st.write(' ')
 
-# with col2:
-#     # Render the map in Streamlit
-#     st_data_2 = st_folium(m, width=725, height=550)
+with col2:
+    # Render the map in Streamlit
+    st_data_2 = st_folium(m, width=825, height=550)
 
-# with col3:
-#     st.write(' ')        
+with col3:
+    st.write(' ')        
         
 
 #TEST 
