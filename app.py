@@ -76,7 +76,7 @@ if fsa_search:
             tooltip=row["NAME"],
             icon=folium.Icon(color="green", icon="info-sign"),
         ).add_to(m)
-
+st_data = st_folium(m, width=725, height=550)
 col1, col2, col3 = st.columns(3)
 
 with col1:
