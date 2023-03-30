@@ -20,7 +20,7 @@ df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
 # Define color scale
 color_scale = folium.LinearColormap(
     colors=["blue", "green", "yellow", "red"],
-    index=[0, 2, 5, 8, df_avgtimes_fire["Avg_time"].max()],
+    index=[0, 2, 5, df_avgtimes_fire["Avg_time"].max()],
     vmin=0,
     vmax=df_avgtimes_fire["Avg_time"].max(),
     caption="Average Response Time (Seconds)",
