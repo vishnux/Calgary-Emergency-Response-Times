@@ -102,7 +102,7 @@ with col3:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
     st.write("The following histogram shows the distribution of response times in minutes. You can adjust the number of bins using the slider below.")
     #bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
-    fig_hist = px.histogram(df_avgtime_fire, x='Avg_time', nbins=20, labels={'Avg_time':'Response Time (mins)'})
+    fig_hist = px.histogram(df_avgtime_fire, x='Avg_time', nbins=20, labels={'Avg_time':'Response Time (mins)','count':'Count'})
     fig_hist.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
     fig_hist.update_layout(title_text='Distribution of Emergency Response Times')
     st.plotly_chart(fig_hist, use_container_width=True)
