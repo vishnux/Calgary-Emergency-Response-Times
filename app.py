@@ -106,10 +106,10 @@ st.plotly_chart(fig_bar)
 st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
 st.write("The following scatter plot shows the distribution of response times by Forward Sortation Area (FSA) in minutes. You can hover over the dots to see the exact values.")
 
-fig_scatter = px.scatter(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Response Time (mins)'}, trendline='ols')
-fig_scatter.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
-fig_scatter.update_layout(title_text='Distribution of Emergency Response Times by FSA')
-st.plotly_chart(fig_scatter)
+# fig_scatter = px.scatter(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Response Time (mins)'}, trendline='ols')
+# fig_scatter.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
+# fig_scatter.update_layout(title_text='Distribution of Emergency Response Times by FSA')
+# st.plotly_chart(fig_scatter)
 
 # Show the distribution of the response times
 st.write("## Distribution of Response Times")
