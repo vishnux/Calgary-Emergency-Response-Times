@@ -81,7 +81,7 @@ if fsa_search:
 # Render the map in Streamlit        
 st_data = st_folium(m, width=725, height=550)
 
-col1, col2 = st.columns(2,gap="large")
+col1, col2 = st.columns(2)#gap="large"
 
 with col1:
     # Show a bar chart of the average response times by FSA
@@ -90,7 +90,9 @@ with col1:
     fig_bar = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
     fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
     fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
+    col1._style["margin"] = "1em"
     st.plotly_chart(fig_bar)
+    
 
 with col2:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
@@ -99,7 +101,9 @@ with col2:
     fig_hist = px.histogram(df_avgtime_fire, x='Avg_time', nbins=bins, labels={'Avg_time':'Response Time (mins)'})
     fig_hist.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
     fig_hist.update_layout(title_text='Distribution of Emergency Response Times')
+    col2._style["margin"] = "1em"
     st.plotly_chart(fig_hist)
+    
     
 # # Show a bar chart of the average response times by FSA
 # fig = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
