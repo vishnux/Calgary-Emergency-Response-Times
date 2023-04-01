@@ -92,7 +92,7 @@ with col1:
     fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
     st.plotly_chart(fig_bar)
 
-st.write("")
+st.write("hello")
 
 with col2:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
