@@ -79,9 +79,20 @@ if fsa_search:
             tooltip=row["NAME"],
             icon=folium.Icon(color="green", icon="info-sign"),
         ).add_to(m)
-        
-# Render the map in Streamlit        
-st_data = st_folium(m, width=725, height=550)
+
+col1, col2,col3 = st.columns((1,1,1))#gap="large"
+
+with col1:
+    # Add some vertical space between the graphs
+    st.write("")  
+
+with col2:
+    # Render the map in Streamlit        
+    st_data = st_folium(m, width=725, height=550)
+    
+with col3:
+    # Add some vertical space between the graphs
+    st.write("")
 
 col1, col2,col3 = st.columns((1,0.1,1))#gap="large"
 
