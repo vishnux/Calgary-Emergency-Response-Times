@@ -80,6 +80,18 @@ if fsa_search:
 # Render the map in Streamlit        
 st_data = st_folium(m, width=725, height=550)
 
+# Show a bar chart of the average response times by FSA
+fig = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
+st.plotly_chart(fig)
+
+# Show a scatter plot of the response times by FSA
+fig2 = px.scatter(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Response Time (mins)'})
+st.plotly_chart(fig2)
+
+# Show the distribution of the response times
+fig3 = px.histogram(df_avgtime_fire, x='Avg_time', nbins=20, labels={'Avg_time':'Response Time (mins)'})
+st.plotly_chart(fig3)
+
 
 # col1, col2, col3 = st.columns(3)
 
