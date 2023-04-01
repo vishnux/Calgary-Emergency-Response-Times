@@ -80,7 +80,7 @@ if fsa_search:
             icon=folium.Icon(color="green", icon="info-sign"),
         ).add_to(m)
 
-col1, col2,col3 = st.columns((1,1,1))#gap="large"
+col1, col2,col3 = st.columns((0.5,1,0.5))#gap="large"
 
 with col1:
     # Add some vertical space between the graphs
