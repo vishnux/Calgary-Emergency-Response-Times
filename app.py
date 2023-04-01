@@ -81,7 +81,7 @@ if fsa_search:
 # Render the map in Streamlit        
 st_data = st_folium(m, width=725, height=550)
 
-col1, col2 = st.columns(2)#gap="large"
+col1, col2, col3 = st.columns(3)#gap="large"
 
 with col1:
     # Show a bar chart of the average response times by FSA
@@ -92,9 +92,10 @@ with col1:
     fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
     st.plotly_chart(fig_bar)
 
-st.write("hello")
-
 with col2:
+    st.write(" ")
+
+with col3:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
     st.write("The following histogram shows the distribution of response times in minutes. You can adjust the number of bins using the slider below.")
     bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
