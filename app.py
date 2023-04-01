@@ -5,7 +5,7 @@ from streamlit_folium import st_folium
 import geopandas as gpd
 import plotly.express as px
 
-#st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 st.title("")
 st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)
 
@@ -81,6 +81,26 @@ if fsa_search:
 # Render the map in Streamlit        
 st_data = st_folium(m, width=725, height=550)
 
+col1, col2 = st.columns(2)
+
+with col1:
+    # Show a bar chart of the average response times by FSA
+    st.write("## Average Response Time by Forward Sortation Area (FSA)")
+    st.write("The following bar chart shows the average response times by Forward Sortation Area (FSA) in minutes. You can hover over the bars to see the exact values.")
+    fig_bar = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
+    fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
+    fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
+    st.plotly_chart(fig_bar)
+
+with col2:
+    st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
+    st.write("The following histogram shows the distribution of response times in minutes. You can adjust the number of bins using the slider below.")
+    bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
+    fig_hist = px.histogram(df_avgtime_fire, x='Avg_time', nbins=bins, labels={'Avg_time':'Response Time (mins)'})
+    fig_hist.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
+    fig_hist.update_layout(title_text='Distribution of Emergency Response Times')
+    st.plotly_chart(fig_hist)
+    
 # # Show a bar chart of the average response times by FSA
 # fig = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
 # st.plotly_chart(fig)
@@ -93,18 +113,13 @@ st_data = st_folium(m, width=725, height=550)
 # fig3 = px.histogram(df_avgtime_fire, x='Avg_time', nbins=20, labels={'Avg_time':'Response Time (mins)'})
 # st.plotly_chart(fig3)
 
-# Show a bar chart of the average response times by FSA
-st.write("## Average Response Time by Forward Sortation Area (FSA)")
-st.write("The following bar chart shows the average response times by Forward Sortation Area (FSA) in minutes. You can hover over the bars to see the exact values.")
 
-fig_bar = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
-fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
-fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
-st.plotly_chart(fig_bar)
+
+
 
 # Show a scatter plot of the response times by FSA
-st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
-st.write("The following scatter plot shows the distribution of response times by Forward Sortation Area (FSA) in minutes. You can hover over the dots to see the exact values.")
+
+#st.write("The following scatter plot shows the distribution of response times by Forward Sortation Area (FSA) in minutes. You can hover over the dots to see the exact values.")
 
 # fig_scatter = px.scatter(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Response Time (mins)'}, trendline='ols')
 # fig_scatter.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
@@ -112,14 +127,8 @@ st.write("The following scatter plot shows the distribution of response times by
 # st.plotly_chart(fig_scatter)
 
 # Show the distribution of the response times
-st.write("## Distribution of Response Times")
-st.write("The following histogram shows the distribution of response times in minutes. You can adjust the number of bins using the slider below.")
+#st.write("## Distribution of Response Times")
 
-bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
-fig_hist = px.histogram(df_avgtime_fire, x='Avg_time', nbins=bins, labels={'Avg_time':'Response Time (mins)'})
-fig_hist.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
-fig_hist.update_layout(title_text='Distribution of Emergency Response Times')
-st.plotly_chart(fig_hist)
 
 
 # col1, col2, col3 = st.columns(3)
