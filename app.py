@@ -81,7 +81,7 @@ if fsa_search:
 # Render the map in Streamlit        
 st_data = st_folium(m, width=725, height=550)
 
-col1, col2,col3 = st.columns((1,1,1))#gap="large"
+col1, col2,col3 = st.columns((1,0.1,1))#gap="large"
 
 with col1:
     # Show a bar chart of the average response times by FSA
