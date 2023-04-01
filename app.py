@@ -19,7 +19,7 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 df_avgtimes_fire = shapefile.merge(df_avgtime_fire, left_on="cfsauid", right_on="FSA")
 df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
 # Sort data by highest response time per FSA to lowest
-df_avgtime_fire = df_avgtime_fire.sort_values(by=['FSA', 'Avg_time'], ascending=[True, False])
+df_avgtime_fire = df_avgtime_fire.sort_values(by=['Avg_time'], ascending=[False])
 # Define color scale
 color_scale = folium.LinearColormap(
     colors=["blue", "green", "yellow", "red"],
