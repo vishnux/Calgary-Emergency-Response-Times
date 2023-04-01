@@ -94,7 +94,7 @@ with col1:
 
 with col2:
     # Add some vertical space between the graphs
-    st.write("<br style='margin-top:10px'>", unsafe_allow_html=True)
+    st.write("<br style='margin-top:1px'>", unsafe_allow_html=True)
 
 with col3:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
