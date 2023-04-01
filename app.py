@@ -93,7 +93,7 @@ with col1:
     st.plotly_chart(fig_bar)
 
 with col2:
-    st.write(" ")
+    st.write("")
 
 with col3:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
