@@ -94,7 +94,7 @@ with col1:
 
 with col2:
     # Add some vertical space between the graphs
-    st.column(1)
+    st.column((1))
 
 with col3:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
