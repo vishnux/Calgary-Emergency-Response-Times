@@ -82,8 +82,6 @@ if fsa_search:
 
 col1, col2,col3 = st.columns((0.5,1,0.5))#gap="large"
 
-df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
-
 with col1:
     # Add some vertical space between the graphs
     st.write("")  
@@ -97,6 +95,8 @@ with col3:
     st.write("")
 
 col1, col2,col3 = st.columns((1,0.1,1))#gap="large"
+
+df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
 
 with col1:
      # Show a bar chart of the average response times by FSA
