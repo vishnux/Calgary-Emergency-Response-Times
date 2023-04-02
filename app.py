@@ -110,15 +110,16 @@ with col1:
         fig_bar = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
         fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
         fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
-        fig_bar.add_shape(
-            dict(type='line', x0=-0.5, y0=6, x1=len(df_avgtime_fire)-0.5, y1=6, line=dict(color='red', width=2)),
-            xref='x', yref='y'
-        )
-        fig_bar.update_layout(
-            annotations=[
-                dict(x=-0.45+len(df_avgtime_fire)/2, y=6.3, xref='x', yref='y', showarrow=False, text='Target', font=dict(size=12, color='red'))
-            ]
-        )
+#         fig_bar.add_shape(
+#             dict(type='line', x0=-0.5, y0=6, x1=len(df_avgtime_fire)-0.5, y1=6, line=dict(color='red', width=2)),
+#             xref='x', yref='y'
+#         )
+#         fig_bar.update_layout(
+#             annotations=[
+#                 dict(x=-0.45+len(df_avgtime_fire)/2, y=6.3, xref='x', yref='y', showarrow=False, text='Target', font=dict(size=12, color='red'))
+#             ]
+#         )
+        fig.add_hline(y=0.9)
         st.plotly_chart(fig_bar, use_container_width=True)
 
 
