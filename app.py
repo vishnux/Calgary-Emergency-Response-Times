@@ -120,7 +120,7 @@ with col1:
 #             ]
 #         )
         fig_bar.add_hline(y=6, line_dash="dash", line_color="red",
-              annotation_text="Jan 1, 2018 baseline")
+              annotation_text="Target",annotation_font_color="red")
         st.plotly_chart(fig_bar, use_container_width=True)
 
 
