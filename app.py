@@ -135,7 +135,7 @@ with col3:
     fig_hist = px.histogram(df_avgtime_fire, x='Avg_time', nbins=20, labels={'Avg_time':'Average Response Time (mins)'})
     fig_hist.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
     fig_hist.update_layout(title_text='Distribution of Emergency Response Times',yaxis_title = 'Count')
-    fig_hist.add_vline(y=6, line_dash="dash", line_color="red",
+    fig_hist.add_vline(x=6, line_dash="dash", line_color="red",
               annotation_text="Target",annotation_font_color="red")
     st.plotly_chart(fig_hist, use_container_width=True)
 
