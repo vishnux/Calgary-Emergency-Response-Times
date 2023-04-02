@@ -32,7 +32,7 @@ color_scale = folium.LinearColormap(
 # Create a map
 m = folium.Map(location=[51.0447,-114.0719], zoom_start=10)
 
-for index, row in df_fire.iterrows():
+for index, row in df_ems.iterrows():
     folium.CircleMarker(
         location=[row["LAT"], row["LON"]],
         popup=row["NAME"],
