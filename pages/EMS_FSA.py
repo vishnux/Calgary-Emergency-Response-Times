@@ -9,7 +9,7 @@ st.set_page_config(layout="wide")
 st.title("")
 st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)
 
-df_ems = pd.read_excel("EMS_wcoordinates.xlsx")
+df_ems = pd.read_excel("EMS_Stations_wcoordinates.xlsx")
 df_ems_avgtime = pd.read_csv("ems_avgtimes.csv")
 
 # Load the shapefile using geopandas
