@@ -133,8 +133,9 @@ with col3:
     
 with st.expander("What is an FSA?"):
     st.write(\"\"\"
-        A forward sortation area (FSA) is a way to designate a geographical unit based on the first three characters in a Canadian postal code. 
-             All postal codes that start with the same three characters—for example, K1A—are together considered an FSA.
+        A forward sortation area (FSA) is a way to designate a geographical unit based on the first three characters 
+             in a Canadian postal code. All postal codes that start with the same three characters—for example, 
+             K1A—are together considered an FSA.
     \"\"\")    
     
 # # Show a bar chart of the average response times by FSA
