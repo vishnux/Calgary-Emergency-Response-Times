@@ -131,12 +131,19 @@ with col3:
     st.plotly_chart(fig_hist, use_container_width=True)
 
     
-with st.expander("What is an FSA?"):
+# with st.expander("What is an FSA?"):
+#     st.write(\"\"\"
+#         A forward sortation area (FSA) is a way to designate a geographical unit based on the first three characters 
+#              in a Canadian postal code. All postal codes that start with the same three characters—for example, 
+#              K1A—are together considered an FSA.
+#     \"\"\")    
+
+with st.expander("See explanation"):
     st.write(\"\"\"
-        A forward sortation area (FSA) is a way to designate a geographical unit based on the first three characters 
-             in a Canadian postal code. All postal codes that start with the same three characters—for example, 
-             K1A—are together considered an FSA.
-    \"\"\")    
+        The chart above shows some numbers I picked for you.
+        I rolled actual dice for these, so they're *guaranteed* to
+        be random.
+    \"\"\")
     
 # # Show a bar chart of the average response times by FSA
 # fig = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
