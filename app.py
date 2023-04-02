@@ -12,3 +12,8 @@ st.sidebar.markdown("# Page 2 ❄️")
 
 #st.markdown("# Page 3 🎉")
 st.sidebar.markdown("# Page 3 🎉")
+
+# Contents of ~/my_app/pages/page_3.py
+
+#st.markdown("# Page 4 🎉")
+st.sidebar.markdown("# Page 4 🎉")
