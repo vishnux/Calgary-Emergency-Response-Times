@@ -121,7 +121,9 @@ with col2:
 
 with col3:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
-    st.write("The following histogram shows the distribution of response times in minutes. You can adjust the number of bins using the slider below.")
+    st.write('''
+    More than 60% of the FSAs have a response time of 2-3 minutes, and more than 95% of the FSA meet the response time target of 6 minutes. 
+    The following histogram shows the distribution of response times in minutes. You can adjust the number of bins using the slider below.''')
     #bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
     fig_hist = px.histogram(df_avgtime_fire, x='Avg_time', nbins=20, labels={'Avg_time':'Average Response Time (mins)'})
     fig_hist.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
