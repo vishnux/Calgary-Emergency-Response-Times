@@ -119,7 +119,7 @@ with col1:
 #                 dict(x=-0.45+len(df_avgtime_fire)/2, y=6.3, xref='x', yref='y', showarrow=False, text='Target', font=dict(size=12, color='red'))
 #             ]
 #         )
-        fig_bar.add_hline(y=0.9)
+        fig_bar.add_hline(y=6, line_dash="dash", line_color="red")
         st.plotly_chart(fig_bar, use_container_width=True)
 
 
