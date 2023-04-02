@@ -96,7 +96,7 @@ with col3:
 
 col1, col2,col3 = st.columns((1,0.1,1))#gap="large"
 
-df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
+#df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
 
 with col1:
      # Show a bar chart of the average response times by FSA
