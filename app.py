@@ -97,13 +97,30 @@ with col3:
 col1, col2,col3 = st.columns((1,0.1,1))#gap="large"
 
 with col1:
-    # Show a bar chart of the average response times by FSA
-    st.write("## Average Response Time by Forward Sortation Area (FSA)")
-    st.write("The following bar chart shows the average response times by Forward Sortation Area (FSA) in minutes. You can hover over the bars to see the exact values.")
-    fig_bar = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
-    fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
-    fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
-    st.plotly_chart(fig_bar, use_container_width=True)
+#     # Show a bar chart of the average response times by FSA
+#     st.write("## Average Response Time by Forward Sortation Area (FSA)")
+#     st.write("The following bar chart shows the average response times by Forward Sortation Area (FSA) in minutes. You can hover over the bars to see the exact values.")
+#     fig_bar = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
+#     fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
+#     fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
+#     st.plotly_chart(fig_bar, use_container_width=True)
+      # Show a bar chart of the average response times by FSA
+        st.write("## Average Response Time by Forward Sortation Area (FSA)")
+        st.write("The following bar chart shows the average response times by Forward Sortation Area (FSA) in minutes. You can hover over the bars to see the exact values.")
+        fig_bar = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
+        fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
+        fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
+        fig_bar.add_shape(
+            dict(type='line', x0=-0.5, y0=6, x1=len(df_avgtime_fire)-0.5, y1=6, line=dict(color='red', width=2)),
+            xref='x', yref='y'
+        )
+        fig_bar.update_layout(
+            annotations=[
+                dict(x=-0.45+len(df_avgtime_fire)/2, y=6.3, xref='x', yref='y', showarrow=False, text='Target', font=dict(size=12, color='red'))
+            ]
+        )
+        st.plotly_chart(fig_bar, use_container_width=True)
+
 
 with col2:
     # Add some vertical space between the graphs
