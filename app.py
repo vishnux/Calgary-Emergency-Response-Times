@@ -123,7 +123,7 @@ with col3:
     An impressive **95%** of our FSAs consistently meet our response time target of **6 minutes**, with over **60%** achieving an 
     even quicker response time of **2-3 minutes**.
     \n
-    The following histogram shows the distribution of response times in minutes. ''')
+    The following histogram shows the distribution of average response times in minutes. ''')
     #bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
     fig_hist = px.histogram(df_avgtimes_fire, x='Avg_time', nbins=20, labels={'Avg_time':'Average Response Time (mins)'})
     fig_hist.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
