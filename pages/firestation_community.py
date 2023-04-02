@@ -89,12 +89,12 @@ col1, col2,col3 = st.columns((1,0.1,1))#gap="large"
 
 with col1:
      # Show a bar chart of the average response times by Community
-     st.write("## Average Response Time by Forward Sortation Area (Community)")
+     st.write("## Average Response Time by Community (Community)")
      st.write('''
      In the event of an emergency, **T3S** and **T1X** are the Communitys with the lowest coverage, potentially leaving those areas vulnerable and in need of 
      additional support. \n
-     The following bar chart shows the average response times by Forward Sortation Area (Community) in minutes. ''')
-     fig_bar = px.bar(df_avgtimes_fire, x='Community', y='Avg_time', labels={'Community':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
+     The following bar chart shows the average response times by Community (Community) in minutes. ''')
+     fig_bar = px.bar(df_avgtimes_fire, x='Community', y='Avg_time', labels={'Community':'Community', 'Avg_time':'Average Response Time (mins)'})
      fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
      fig_bar.update_layout(title_text='Average Emergency Response Times by Community')
      fig_bar.add_hline(y=6, line_dash="dash", line_color="red",
@@ -107,7 +107,7 @@ with col2:
     st.write("")
 
 with col3:
-    st.write("## Response Time Distribution by Forward Sortation Area (Community)")
+    st.write("## Response Time Distribution by Community (Community)")
     st.write('''
     An impressive **95%** of our Communitys consistently meet our response time target of **6 minutes**, with over **60%** achieving an 
     even quicker response time of **2-3 minutes**.
@@ -124,7 +124,7 @@ with col3:
     
 with st.expander("What is an Community?"):
     st.write("""
-        A forward sortation area [Community](https://ised-isde.canada.ca/site/office-superintendent-bankruptcy/en/statistics-and-research/forward-sortation-area-fsa-and-north-american-industry-classification-naics-reports/forward-sortation-area-definition) 
+        A Community [Community](https://ised-isde.canada.ca/site/office-superintendent-bankruptcy/en/statistics-and-research/forward-sortation-area-fsa-and-north-american-industry-classification-naics-reports/forward-sortation-area-definition) 
         is a way to designate a geographical unit based on the first three characters 
              in a Canadian postal code. All postal codes that start with the same three characters—for example, 
              K1A—are together considered an FSA.
