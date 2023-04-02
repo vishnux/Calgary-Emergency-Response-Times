@@ -122,8 +122,6 @@ with col2:
 with col3:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
     st.write('''
-    More than **60%** of the FSAs have a response time of **2-3 minutes**, and more than **95%** of the FSA meet the 
-    response time target of **6 minutes**. 
     An impressive **95%** of our FSAs consistently meet our response time target of **6 minutes**, with over **60%** achieving an 
     even quicker response time of **2-3 minutes**.
     \n
