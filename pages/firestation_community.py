@@ -14,7 +14,7 @@ df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
 df_avgtimes_fire = pd.read_csv("FireStation_avgtimes_Community.csv")
 
 # Load the shapefile using geopandas
-shapefile = gpd.read_file("clipped-to-calgary.shp")
+shapefile = gpd.read_file("communities_to_fsa.shp")
 
 # Join shapefile with df_avgtime_fire on Community code
 #df_avgtimes_fire = shapefile.merge(df_fire_avgtime, left_on="cfsauid", right_on="FSA")
@@ -68,18 +68,6 @@ folium.GeoJson(
 # Add the legend to the map
 color_scale.add_to(m)
 folium.LayerControl().add_to(m)
-
-# # Search Bar for Community
-# Community_search = st.sidebar.text_input("Search for Community:")
-# if Community_search:
-#     Community_data = df_avgtime_fire[df_avgtime_fire["Community"].str.contains(Community_search)]
-#     for index, row in Community_data.iterrows():
-#         folium.Marker(
-#             location=[row["LAT"], row["LON"]],
-#             popup=row["NAME"],
-#             tooltip=row["NAME"],
-#             icon=folium.Icon(color="green", icon="info-sign"),
-#         ).add_to(m)
 
 col1, col2,col3 = st.columns((0.5,1,0.5))#gap="large"
 
