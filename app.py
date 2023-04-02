@@ -105,7 +105,7 @@ with col1:
      fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
      fig_bar.add_hline(y=6, line_dash="dash", line_color="red",
               annotation_text="Target",annotation_font_color="red")
-#     st.plotly_chart(fig_bar, use_container_width=True)
+     st.plotly_chart(fig_bar, use_container_width=True)
       # Show a bar chart of the average response times by FSA
 #         st.write("## Average Response Time by Forward Sortation Area (FSA)")
 #         st.write("The following bar chart shows the average response times by Forward Sortation Area (FSA) in minutes. You can hover over the bars to see the exact values.")
