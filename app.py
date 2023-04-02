@@ -110,15 +110,6 @@ with col1:
         fig_bar = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
         fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
         fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
-#         fig_bar.add_shape(
-#             dict(type='line', x0=-0.5, y0=6, x1=len(df_avgtime_fire)-0.5, y1=6, line=dict(color='red', width=2)),
-#             xref='x', yref='y'
-#         )
-#         fig_bar.update_layout(
-#             annotations=[
-#                 dict(x=-0.45+len(df_avgtime_fire)/2, y=6.3, xref='x', yref='y', showarrow=False, text='Target', font=dict(size=12, color='red'))
-#             ]
-#         )
         fig_bar.add_hline(y=6, line_dash="dash", line_color="red",
               annotation_text="Target",annotation_font_color="red")
         st.plotly_chart(fig_bar, use_container_width=True)
@@ -139,6 +130,13 @@ with col3:
               annotation_text="Target",annotation_font_color="red")
     st.plotly_chart(fig_hist, use_container_width=True)
 
+    
+with st.expander("What is an FSA?"):
+    st.write(\"\"\"
+        A forward sortation area (FSA) is a way to designate a geographical unit based on the first three characters in a Canadian postal code. 
+             All postal codes that start with the same three characters—for example, K1A—are together considered an FSA.
+    \"\"\")    
+    
 # # Show a bar chart of the average response times by FSA
 # fig = px.bar(df_avgtime_fire, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
 # st.plotly_chart(fig)
