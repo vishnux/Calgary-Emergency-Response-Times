@@ -5,6 +5,9 @@ from streamlit_folium import st_folium
 import geopandas as gpd
 import plotly.express as px
 
+with open( "app\style.css" ) as css:
+    st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+
 st.set_page_config(layout="wide")
 st.title("")
 st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)
