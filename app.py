@@ -124,6 +124,8 @@ with col3:
     st.write('''
     More than **60%** of the FSAs have a response time of **2-3 minutes**, and more than **95%** of the FSA meet the 
     response time target of **6 minutes**. 
+    An impressive **95%** of our FSAs consistently meet our response time target of **6 minutes**, with over **60%** achieving an 
+    even quicker response time of **2-3 minutes**.
     \n
     The following histogram shows the distribution of response times in minutes. ''')
     #bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
