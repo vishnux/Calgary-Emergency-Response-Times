@@ -10,16 +10,16 @@ st.title("")
 st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)
 
 df_fire = pd.read_excel("Fire_Stations_wcoordinates.xlsx")
-df_avgtime_fire = pd.read_csv("FireStation_avgtimes.csv")
+df_fire_avgtime = pd.read_csv("FireStation_avgtimes.csv")
 
 # Load the shapefile using geopandas
 shapefile = gpd.read_file("clipped-to-calgary.shp")
 
 # Join shapefile with df_avgtime_fire on FSA code
-df_avgtimes_fire = shapefile.merge(df_avgtime_fire, left_on="cfsauid", right_on="FSA")
+df_avgtimes_fire = shapefile.merge(df_fire_avgtime, left_on="cfsauid", right_on="FSA")
 df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
 # Sort data by highest response time per FSA to lowest
-df_avgtimes_fire = df_avgtime_fires.sort_values(by=['Avg_time'], ascending=[False])
+df_avgtimes_fire = df_avgtimes_fires.sort_values(by=['Avg_time'], ascending=[False])
 # Define color scale
 color_scale = folium.LinearColormap(
     colors=["blue", "green", "yellow", "red"],
