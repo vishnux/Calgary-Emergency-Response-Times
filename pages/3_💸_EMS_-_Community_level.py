@@ -104,7 +104,7 @@ with col1:
      st.write('''
      In the event of an emergency, **T3S** and **T1X** are the communities with the lowest coverage, potentially leaving those areas vulnerable and in need of 
      additional support. \n
-     The following bar chart shows the average response times by Community (Community) in minutes. ''')
+     The following bar chart shows the average response times by Community in minutes. ''')
      fig_bar = px.bar(df_avgtimes_ems, x='Community', y='Avg_time', labels={'Community':'Community', 'Avg_time':'Average Response Time (mins)'})
      fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
      fig_bar.update_layout(title_text='Average Emergency Response Times by Community')
@@ -118,7 +118,7 @@ with col2:
     st.write("")
 
 with col3:
-    st.write("## Response Time Distribution by Community (Community)")
+    st.write("## Response Time Distribution by Community")
     st.write('''
     An impressive **95%** of our Communitys consistently meet our response time target of **6 minutes**, with over **60%** achieving an 
     even quicker response time of **2-3 minutes**.
