@@ -89,7 +89,7 @@ col1, col2,col3 = st.columns((1,0.1,1))#gap="large"
 
 with col1:
      # Show a bar chart of the average response times by Community
-     st.write("## Average Response Time by Community (Community)")
+     st.write("## Average Response Time by Community")
      st.write('''
      In the event of an emergency, **T3S** and **T1X** are the Communitys with the lowest coverage, potentially leaving those areas vulnerable and in need of 
      additional support. \n
