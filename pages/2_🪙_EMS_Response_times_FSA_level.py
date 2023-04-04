@@ -108,7 +108,7 @@ with col1:
      fig_bar = px.bar(df_avgtimes_ems, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
      fig_bar.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
      fig_bar.update_layout(title_text='Average Emergency Response Times by FSA')
-     fig_bar.add_hline(y=6, line_dash="dash", line_color="red",
+     fig_bar.add_hline(y=7, line_dash="dash", line_color="red",
               annotation_text="Target",annotation_font_color="red")
      st.plotly_chart(fig_bar, use_container_width=True)
 
@@ -128,7 +128,7 @@ with col3:
     fig_hist = px.histogram(df_avgtimes_ems, x='Avg_time', nbins=20, labels={'Avg_time':'Average Response Time (mins)'})
     fig_hist.update_traces(marker_color='rgb(158,202,225)', marker_line_color='rgb(8,48,107)', marker_line_width=1.5, opacity=0.6)
     fig_hist.update_layout(title_text='Distribution of Emergency Response Times',yaxis_title = 'Count')
-    fig_hist.add_vline(x=6, line_dash="dash", line_color="red",
+    fig_hist.add_vline(x=7, line_dash="dash", line_color="red",
               annotation_text="Target",annotation_font_color="red")
     st.plotly_chart(fig_hist, use_container_width=True)
 
