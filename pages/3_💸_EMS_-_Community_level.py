@@ -29,16 +29,31 @@ df_avgtimes_ems = df_avgtimes_ems.sort_values(by=['Avg_time'], ascending=[False]
 #     caption="Average Response Time (Seconds)",
 # )
 
-from branca.colormap import StepColormap
+# Define categories and corresponding colors
+categories = ["blue", "green", "yellow", "red"]
+colors = ["#0000FF", "#008000", "#FFFF00", "#FF0000"]
 
-# Define color scale
-color_scale = StepColormap(
-    colors=["blue", "green", "yellow", "red"],
-    index=[0, 2, 5, df_avgtimes_fire["Avg_time"].max()],
-    vmin=0,
-    vmax=df_avgtimes_fire["Avg_time"].max(),
-    caption="Average Response Time (Seconds)",
-)
+# Determine value ranges for each category
+values = df_avgtimes_fire["Avg_time"]
+cat_ranges = [0, 2, 5, df_avgtimes_fire["Avg_time"].max()]
+
+# Create colormap legend
+legend_html = '<div style="font-size: 14pt; color: #555555; font-weight: bold; margin-bottom: 5px;">Average Response Time (Seconds)</div>'
+for i, cat in enumerate(categories):
+    legend_html += '<div style="display: inline-block; width: 120px; height: 30px; background-color: {}"></div><div style="display: inline-block; margin-left: 5px; font-size: 12pt;">{} - {}</div>'.format(colors[i], cat_ranges[i], cat_ranges[i+1])
+
+# Create map with colored markers
+map = folium.Map(location=[lat, lon], zoom_start=12)
+for lat, lon, val in zip(df_avgtimes_fire["Latitude"], df_avgtimes_fire["Longitude"], values):
+    for i, cat_range in enumerate(cat_ranges[:-1]):
+        if val >= cat_range and val < cat_ranges[i+1]:
+            color = colors[i]
+            break
+    else:
+        color = colors[-1]
+    folium.Marker(location=[lat, lon], icon=folium.Icon(color=color)).add_to(map)
+map.get_root().html.add_child(folium.Element(legend_html))
+
 
 
 # Create a map
