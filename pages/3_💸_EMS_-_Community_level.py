@@ -21,11 +21,18 @@ df_avgtimes_ems["Avg_time"] = df_avgtimes_ems["Avg_time"].round(2)
 # Sort data by highest response time per Community to lowest
 df_avgtimes_ems = df_avgtimes_ems.sort_values(by=['Avg_time'], ascending=[False])
 # Define color scale
-color_scale = folium.LinearColormap(
+# color_scale = folium.LinearColormap(
+#     colors=["blue", "green", "yellow", "red"],
+#     index=[0, 2, 5, df_avgtimes_ems["Avg_time"].max()],
+#     vmin=0,
+#     vmax=df_avgtimes_ems["Avg_time"].max(),
+#     caption="Average Response Time (Seconds)",
+# )
+
+# Define color scale
+color_scale = folium.plugins.CategoricalColormap(
     colors=["blue", "green", "yellow", "red"],
-    index=[0, 2, 5, df_avgtimes_ems["Avg_time"].max()],
-    vmin=0,
-    vmax=df_avgtimes_ems["Avg_time"].max(),
+    index=[0, 2, 5, df_avgtimes_fire["Avg_time"].max()],
     caption="Average Response Time (Seconds)",
 )
 
