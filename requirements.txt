@@ -7,4 +7,3 @@ streamlit
 openpyxl
 mapclassify
 plotly.express
-branca.colormap
