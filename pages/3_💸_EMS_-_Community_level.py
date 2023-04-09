@@ -23,10 +23,11 @@ df_avgtimes_ems = df_avgtimes_ems.sort_values(by=['Avg_time'], ascending=[False]
 # Define color scale
 color_scale = folium.LinearColormap(
     colors=["blue", "green", "yellow", "red"],
-    index=[0, 2, 5, 9],
+    index=[0, 2, 5, df_avgtimes_fire["Avg_time"].max()],
+    vmin=0,
+    vmax=df_avgtimes_fire["Avg_time"].max(),
     caption="Average Response Time (Seconds)",
 )
-
 
 # Create a map
 m = folium.Map(location=[51.0447,-114.0719], zoom_start=10)
