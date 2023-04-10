@@ -131,8 +131,10 @@ with col3:
     fig_hist.add_vline(x=9, line_dash="dash", line_color="red",
               annotation_text="Target",annotation_font_color="red")
     st.plotly_chart(fig_hist, use_container_width=True)
-
-df_top5 = df_avgtimes_ems.nlargest(5, 'Avg_time')[['FSA', 'Avg_time']]
+    
+# Show a table of top 5 Fire Stations with highest mean response lag times
+st.write("Top 5 Fire Stations with highest mean response lag times:")
+st.write(df_avgtimes_ems.groupby("Community").mean().sort_values(by='Avg_time', ascending=False).head(5))
 
 print(df_top5)
 with st.expander("What is an Community?"):
