@@ -134,7 +134,7 @@ with col3:
     
 # Show a table of top 5 Fire Stations with highest mean response lag times
 st.write("Top 5 Fire Stations with highest mean response lag times:")
-st.write(df_avgtimes_ems.groupby("Community").mean().sort_values(by='Avg_time', ascending=False).head(10))
+st.write(df_avgtimes_ems.groupby("Community").mean().sort_values(by='Avg_time', ascending=False).head(20))
 
 with st.expander("What is an Community?"):
     st.write("""
