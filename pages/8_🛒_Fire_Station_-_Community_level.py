@@ -19,6 +19,7 @@ shapefile = gpd.read_file("communities_to_fsa.shp")
 # Join shapefile with df_avgtime_fire on Community code
 df_avgtimes_fire = shapefile.merge(df_fire_avgtime, left_on="name", right_on="Community")
 df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
+df_avgtimes_fire =  df_avgtimes_fire[df_avgtimes_fire['Avg_time'] > 0]
 # Sort data by highest response time per Community to lowest
 df_avgtimes_fire = df_avgtimes_fire.sort_values(by=['Avg_time'], ascending=[False])
 # Define color scale
