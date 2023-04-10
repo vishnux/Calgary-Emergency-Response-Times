@@ -7,7 +7,7 @@ import plotly.express as px
 
 st.set_page_config(layout="wide")
 st.title("")
-st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Calgary EMS Response Lag Time Analysis</h1>", unsafe_allow_html=True)
 
 df_ems = pd.read_excel("EMS_Stations_wcoordinates.xlsx")
 df_ems_avgtime = pd.read_csv("ems_avgtimes_community.csv")
@@ -101,8 +101,8 @@ col1, col2,col3 = st.columns((1,0.1,1))#gap="large"
 
 with col1:
      # Show a bar chart of the average response times by Community
-     st.write("## Average Response Time by Community (Community)")
-     st.write('''
+     st.write("## Average Response Time by Community")
+     st.write(''' 
      In the event of an emergency, **T3S** and **T1X** are the communities with the lowest coverage, potentially leaving those areas vulnerable and in need of 
      additional support. \n
      The following bar chart shows the average response times by Community in minutes. ''')
@@ -112,7 +112,9 @@ with col1:
      fig_bar.add_hline(y=9, line_dash="dash", line_color="red",
               annotation_text="Target",annotation_font_color="red")
      st.plotly_chart(fig_bar, use_container_width=True)
+     df_top5 = df_avgtimes_ems.nlargest(5, 'Avg_time')[['FSA', 'Avg_time']]
 
+     print(df_top5)
 
 with col2:
     # Add some vertical space between the graphs
