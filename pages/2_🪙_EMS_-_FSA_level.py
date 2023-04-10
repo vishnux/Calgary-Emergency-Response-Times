@@ -133,6 +133,9 @@ with col3:
               annotation_text="Target",annotation_font_color="red")
     st.plotly_chart(fig_hist, use_container_width=True)
 
+# Show a table of top 5 Fire Stations with highest mean response lag times
+st.write("Top 5 Fire Stations with highest mean response lag times:")
+st.write(df_avgtimes_ems.groupby("Fire Station Name").mean().sort_values(by='Avg_time', ascending=False).head(5))
     
 with st.expander("What is an FSA?"):
     st.write("""
