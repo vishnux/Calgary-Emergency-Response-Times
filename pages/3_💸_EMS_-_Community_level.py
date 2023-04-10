@@ -112,9 +112,6 @@ with col1:
      fig_bar.add_hline(y=9, line_dash="dash", line_color="red",
               annotation_text="Target",annotation_font_color="red")
      st.plotly_chart(fig_bar, use_container_width=True)
-     df_top5 = df_avgtimes_ems.nlargest(5, 'Avg_time')[['FSA', 'Avg_time']]
-
-     print(df_top5)
 
 with col2:
     # Add some vertical space between the graphs
@@ -135,7 +132,9 @@ with col3:
               annotation_text="Target",annotation_font_color="red")
     st.plotly_chart(fig_hist, use_container_width=True)
 
-    
+df_top5 = df_avgtimes_ems.nlargest(5, 'Avg_time')[['FSA', 'Avg_time']]
+
+print(df_top5)
 with st.expander("What is an Community?"):
     st.write("""
         A forward sortation area [Community](https://ised-isde.canada.ca/site/office-superintendent-bankruptcy/en/statistics-and-research/forward-sortation-area-Community-and-north-american-industry-classification-naics-reports/forward-sortation-area-definition) 
