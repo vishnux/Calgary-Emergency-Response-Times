@@ -18,6 +18,7 @@ shapefile = gpd.read_file("clipped-to-calgary.shp")
 # Join shapefile with df_avgtime_fire on FSA code
 df_avgtimes_fire = shapefile.merge(df_fire_avgtime, left_on="cfsauid", right_on="FSA")
 df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
+df_avgtimes_fire =  df_avgtimes_fire[df_avgtimes_fire['Avg_time'] > 0]
 # Sort data by highest response time per FSA to lowest
 df_avgtimes_fire = df_avgtimes_fire.sort_values(by=['Avg_time'], ascending=[False])
 # Define color scale
