@@ -7,7 +7,7 @@ import plotly.express as px
 
 st.set_page_config(layout="wide")
 st.title("")
-st.markdown("<h1 style='text-align: center;'>Calgary Fire Station Response Lag Time Analysis</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Calgary EMS Response Lag Time Analysis</h1>", unsafe_allow_html=True)
 
 df_ems = pd.read_excel("EMS_Stations_wcoordinates.xlsx")
 df_ems_avgtime = pd.read_csv("ems_avgtimes.csv")
@@ -103,7 +103,7 @@ with col1:
      # Show a bar chart of the average response times by FSA
      st.write("## Average Response Time by Forward Sortation Area (FSA)")
      st.write('''
-     In the event of an emergency, **T3S** and **T1X** are the FSAs with the lowest coverage, potentially leaving those areas vulnerable and in need of 
+     In the event of an emergency, **T1X***, *T3S**, **T2X** and **T2Y** are the FSAs with the lowest coverage, potentially leaving those areas vulnerable and in need of 
      additional support. \n
      The following bar chart shows the average response times by Forward Sortation Area (FSA) in minutes. ''')
      fig_bar = px.bar(df_avgtimes_ems, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
@@ -121,8 +121,8 @@ with col2:
 with col3:
     st.write("## Response Time Distribution by Forward Sortation Area (FSA)")
     st.write('''
-    An impressive **95%** of our FSAs consistently meet our response time target of **6 minutes**, with over **60%** achieving an 
-    even quicker response time of **2-3 minutes**.
+    An impressive **88%** of our FSAs consistently meet our response time target of **8 minutes and 59 seconds**, with over **45%** achieving an 
+    even quicker response time of **3-4 minutes**.
     \n
     The following histogram shows the distribution of response times in minutes. ''')
     #bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
