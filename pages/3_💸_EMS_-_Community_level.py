@@ -103,7 +103,7 @@ with col1:
      # Show a bar chart of the average response times by Community
      st.write("## Average Response Time by Community")
      st.write(''' 
-     In the event of an emergency, **T3S** and **T1X** are the communities with the lowest coverage, potentially leaving those areas vulnerable and in need of 
+     In the event of an emergency, **Glacier Ridge**, **Legacy**, **Hotchkiss** and **Wolf Willow* are the communities which aren't residual sub areas with the lowest coverage, potentially leaving those areas vulnerable and in need of 
      additional support. \n
      The following bar chart shows the average response times by Community in minutes. ''')
      fig_bar = px.bar(df_avgtimes_ems, x='Community', y='Avg_time', labels={'Community':'Community', 'Avg_time':'Average Response Time (mins)'})
@@ -120,8 +120,7 @@ with col2:
 with col3:
     st.write("## Response Time Distribution by Community")
     st.write('''
-    An impressive **95%** of our Communitys consistently meet our response time target of **6 minutes**, with over **60%** achieving an 
-    even quicker response time of **2-3 minutes**.
+    Over **14%** of our communities don't meet our response time target of **8 minutes and 59 seconds**.
     \n
     The following histogram shows the distribution of response times in minutes. ''')
     #bins = st.slider("Select the number of bins", min_value=5, max_value=50, value=20)
