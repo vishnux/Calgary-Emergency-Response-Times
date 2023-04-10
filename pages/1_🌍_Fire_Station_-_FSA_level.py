@@ -87,7 +87,7 @@ folium.LayerControl().add_to(m)
 #             icon=folium.Icon(color="green", icon="info-sign"),
 #         ).add_to(m)
 
-df_avgtimes_fire = df_avgtimes_fire['Avg_time'] > 0 
+df_avgtimes_fire =  df_avgtimes_fire[df_avgtimes_fire['Avg_time'] > 0]
 
 col1, col2,col3 = st.columns((0.5,1,0.5))#gap="large"
 
