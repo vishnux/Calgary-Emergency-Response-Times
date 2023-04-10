@@ -21,20 +21,20 @@ df_avgtimes_fire["Avg_time"] = df_avgtimes_fire["Avg_time"].round(2)
 # Sort data by highest response time per FSA to lowest
 df_avgtimes_fire = df_avgtimes_fire.sort_values(by=['Avg_time'], ascending=[False])
 # Define color scale
-# color_scale = folium.LinearColormap(
-#     colors=["blue", "green", "yellow", "red"],
-#     index=[0, 2, 5, df_avgtimes_fire["Avg_time"].max()],
-#     vmin=0,
-#     vmax=df_avgtimes_fire["Avg_time"].max(),
-#     caption="Average Response Time (Seconds)",
-# )
-
-# Define color scale
-color_scale = folium.plugins.CategoricalColormap(
+color_scale = folium.LinearColormap(
     colors=["blue", "green", "yellow", "red"],
     index=[0, 2, 5, df_avgtimes_fire["Avg_time"].max()],
+    vmin=0,
+    vmax=df_avgtimes_fire["Avg_time"].max(),
     caption="Average Response Time (Seconds)",
 )
+
+# # Define color scale
+# color_scale = folium.plugins.CategoricalColormap(
+#     colors=["blue", "green", "yellow", "red"],
+#     index=[0, 2, 5, df_avgtimes_fire["Avg_time"].max()],
+#     caption="Average Response Time (Seconds)",
+# )
 
 # Create a map
 m = folium.Map(location=[51.0447,-114.0719], zoom_start=10)
