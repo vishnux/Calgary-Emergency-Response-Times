@@ -110,7 +110,7 @@ with col2:
 with col3:
     st.write("## Response Time Distribution by Community")
     st.write('''
-    An impressive **93%** of our Communities consistently meet our response time target of **6 minutes**, with over **75%** achieving an 
+    An impressive **93%** of our Communities consistently meet our response time target of **7 minutes**, with over **75%** achieving an 
     even quicker response time of **2-5 minutes**.
     \n
     The following histogram shows the distribution of response times in minutes. ''')
