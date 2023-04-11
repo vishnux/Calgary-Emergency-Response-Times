@@ -9,9 +9,9 @@ add_page_title()
 show_pages(
     [
         Page("app.py", "Home", "🏠"),
-        Page("pages/1_🌍_Fire_Station_-_FSA_level.py", "1_🌍_Fire_Station_-_FSA_level.py",),
-        #Page("other_pages/page2.py", "Page 2", ":books:"),
-        #Page("other_pages/page2.py", "Page 2", ":books:"),
-        #Page("other_pages/page2.py", "Page 2", ":books:"),
+        Page("pages/1_🌍_Fire_Station_-_FSA_level.py", "_🌍_Fire_Station_-_FSA_level",),
+        Page("pages/2_🛒_Fire_Station_-_Community_level.py", "2_🛒_Fire_Station_-_Community_level"),
+        Page("pages/3_🪙_EMS_-_FSA_level.py", "3_🪙_EMS_-_FSA_level"),
+        Page("pages/4_💸_EMS_-_Community_level.py", "4_💸_EMS_-_Community_level"),
     ]
 )
