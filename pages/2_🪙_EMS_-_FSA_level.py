@@ -103,7 +103,7 @@ with col1:
      # Show a bar chart of the average response times by FSA
      st.write("## Average Response Time by Forward Sortation Area (FSA)")
      st.write('''
-     In the event of an emergency, **T1X***, **T3S**, **T2X** and **T2Y** are the FSAs with the lowest coverage, potentially leaving those areas vulnerable and in need of 
+     In the event of an emergency, **T1X**, **T3S**, **T2X** and **T2Y** are the FSAs with the lowest coverage, potentially leaving those areas vulnerable and in need of 
      additional support. \n
      The following bar chart shows the average response times by Forward Sortation Area (FSA) in minutes. ''')
      fig_bar = px.bar(df_avgtimes_ems, x='FSA', y='Avg_time', labels={'FSA':'Forward Sortation Area', 'Avg_time':'Average Response Time (mins)'})
