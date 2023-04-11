@@ -11,7 +11,7 @@ show_pages(
         Page("app.py", "Home", "🏠"),
         Page("pages/1_🌍_Fire_Station_-_FSA_level.py", "Fire_Station_-_FSA_level"),
         Page("pages/2_🛒_Fire_Station_-_Community_level.py", "Fire_Station_-_Community_level","🛒"),
-        #Page("pages/3_EMS_-_FSA_level.py", "EMS_-_FSA_level","🪙"),
-        #Page("pages/4_EMS_-_Community_level.py", "EMS_-_Community_level","💸"),
+        Page("pages/3_🪙_EMS_-_FSA_level.py", "EMS_-_FSA_level"),
+        Page("pages/4_💸_EMS_-_Community_level.py", "EMS_-_Community_level"),
     ]
 )
