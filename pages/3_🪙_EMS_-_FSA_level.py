@@ -144,3 +144,8 @@ with st.expander("What is a FSA?"):
              in a Canadian postal code. All postal codes that start with the same three characters—for example, 
              K1A—are together considered an FSA." - [Statistics Canada](https://ised-isde.canada.ca/site/office-superintendent-bankruptcy/en/statistics-and-research/forward-sortation-area-fsa-and-north-american-industry-classification-naics-reports/forward-sortation-area-definition) 
     """)    
+with st.expander("What is a FSA?"):
+    st.write("""
+        "The national response time goal for paramedics in Canada is 8 minutes 59 seconds, for the most serious emergencies." - [Paramedics in 8:59](https://www.paramedicsin859.com/#:~:text=The%20national%20response%20time%20goal,for%20the%20most%20serious%20emergencies.) 
+    """)  
+    
