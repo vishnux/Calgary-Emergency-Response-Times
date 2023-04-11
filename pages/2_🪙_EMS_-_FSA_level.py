@@ -134,13 +134,13 @@ with col3:
     st.plotly_chart(fig_hist, use_container_width=True)
 
 # Show a table of top 5 Fire Stations with highest mean response lag times
-st.write("Top 5 Fire Stations with highest mean response lag times:")
-st.write(df_avgtimes_ems.groupby("FSA").mean().sort_values(by='Avg_time', ascending=False).head(5))
+#st.write("Top 5 Fire Stations with highest mean response lag times:")
+#st.write(df_avgtimes_ems.groupby("FSA").mean().sort_values(by='Avg_time', ascending=False).head(5))
     
-with st.expander("What is an FSA?"):
+with st.expander("What is a FSA?"):
     st.write("""
-        A forward sortation area [FSA](https://ised-isde.canada.ca/site/office-superintendent-bankruptcy/en/statistics-and-research/forward-sortation-area-fsa-and-north-american-industry-classification-naics-reports/forward-sortation-area-definition) 
+        "A forward sortation area [FSA]
         is a way to designate a geographical unit based on the first three characters 
              in a Canadian postal code. All postal codes that start with the same three characters—for example, 
-             K1A—are together considered an FSA.
+             K1A—are together considered an FSA." - [Statistics Canada](https://ised-isde.canada.ca/site/office-superintendent-bankruptcy/en/statistics-and-research/forward-sortation-area-fsa-and-north-american-industry-classification-naics-reports/forward-sortation-area-definition) 
     """)    
