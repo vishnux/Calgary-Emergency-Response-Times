@@ -8,7 +8,7 @@ add_page_title()
 # and icons should be
 show_pages(
     [
-        Page("app.py", "Home", "🏠"),
+        #Page("app.py", "Home", "🏠"),
         Page("pages/1_🌍_Fire_Station_-_FSA_level.py", "Fire_Station_-_FSA_level"),
         Page("pages/2_🛒_Fire_Station_-_Community_level.py", "Fire_Station_-_Community_level","🛒"),
         Page("pages/3_🪙_EMS_-_FSA_level.py", "EMS_-_FSA_level"),
