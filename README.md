@@ -36,3 +36,18 @@ The results of the analysis show the response times of emergency services in dif
 
 ## Conclusion
 The Calgary Emergency Response Time Analysis project provides insights into the response times of emergency services in Calgary, Canada. The project can help emergency services to identify areas where improvements can be made and enhance their performance in responding to emergencies.
+
+## Contribute
+Contributions to the Calgary Emergency Response Time Analysis project are welcome! If you have any ideas, bug fixes, or enhancements, feel free to submit a pull request.
+
+Here are some ideas on How to Contribute.
+
+Please follow this project's Code of Conduct.
+
+## Note
+This project is for educational purposes only. The generated recipes may not always be perfect or entirely sensible. Please use your judgment before trying them out. You can modify the code and experiment with different ingredients to generate new recipes.
+
+## License
+This project is licensed under the MIT License.
+
+
