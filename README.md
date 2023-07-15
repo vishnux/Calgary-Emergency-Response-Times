@@ -44,9 +44,6 @@ Here are some ideas on [How to Contribute](https://opensource.guide/how-to-contr
 
 Please adhere to this project's [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
-## Note
-This project is for educational purposes only. The generated recipes may not always be perfect or entirely sensible. Please use your judgment before trying them out. You can modify the code and experiment with different ingredients to generate new recipes.
-
 ## License
 This project is licensed under the MIT License.
 
