@@ -45,6 +45,6 @@ Here are some ideas on [How to Contribute](https://opensource.guide/how-to-contr
 Please adhere to this project's [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the Apache-2.0 license.
 
 
