@@ -17,5 +17,5 @@ show_pages(
 )
 
 Executive Summary: 
-
+st.markdown("<h1 style='text-align: center;'>Executive Summary: </h1>", unsafe_allow_html=True)
 
