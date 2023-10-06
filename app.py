@@ -15,7 +15,3 @@ show_pages(
         Page("pages/4_💸_EMS_-_Community_level.py", "EMS_-_Community_level"),
     ]
 )
-
-Executive-Summary: 
-st.markdown("<h1 style='text-align: center;'>Executive Summary: </h1>", unsafe_allow_html=True)
-
