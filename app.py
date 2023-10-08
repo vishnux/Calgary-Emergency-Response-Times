@@ -4,7 +4,7 @@ from st_pages import Page, show_pages, add_page_title
 # Define a SessionState class to manage the selected page
 class SessionState:
     def __init__(self):
-        self.page = "executive_summary"
+        self.page = "app.py"
 
 # Create an instance of SessionState
 session_state = SessionState()
