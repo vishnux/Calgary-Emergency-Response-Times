@@ -16,7 +16,8 @@ session_state = SessionState()
 # and icons should be
 show_pages(
     [
-        Page("executive_summary", "Executive Summary", "📈"),
+        # Adding app.py as the first page (executive summary)
+        Page("app.py", "Calgary Emergency Response Time Analysis", "📈"),
         Page("pages/1_🌍_Fire_Station_-_FSA_level.py", "Fire_Station_-_FSA_level"),
         Page("pages/2_🛒_Fire_Station_-_Community_level.py", "Fire_Station_-_Community_level","🛒"),
         Page("pages/3_🪙_EMS_-_FSA_level.py", "EMS_-_FSA_level"),
@@ -24,8 +25,8 @@ show_pages(
     ]
 )
 
-# Define the content of the executive summary page
-if session_state.page == "executive_summary":
+# Define the content of the executive summary page (app.py)
+if session_state.page == "app.py":
     st.title("Calgary Emergency Response Time Analysis - Executive Summary")
     st.write("This executive summary provides a concise overview of the key findings and the importance of the project.")
     st.write("## Introduction")
